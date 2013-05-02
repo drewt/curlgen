@@ -1,23 +1,23 @@
-CURLGEN(1)                      curlget Manual                      CURLGEN(1)
+CURLGEN(1)                      curlgen Manual                      CURLGEN(1)
 
 
 
-NNAAMMEE
+NAME
        curlgen - generate a cURL configuration script
 
-SSYYNNOOPPSSIISS
-       ccuurrllggeett [[ooppttiioonnss]]
+SYNOPSIS
+       curlget [options]
 
-DDEESSCCRRIIPPTTIIOONN
-       ccuurrllggeenn  is  a tool to generate cURL configuration scripts, to automate
+DESCRIPTION
+       curlgen  is  a tool to generate cURL configuration scripts, to automate
        the download of files with cURL.  It reads URLs from standard input and
        generates the script on standard output.
 
-       ccuurrllggeenn supports some features in addition to those offered by cURL, as
+       curlgen supports some features in addition to those offered by cURL, as
        well as supporting all cURL options which can be supplied to configura-
        tion scripts.
 
-OOPPTTIIOONNSS
+OPTIONS
        -b, --blacklist
               Specifies  file  types to ignore.  Any URLs which end with a '.'
               followed by an extention given to this option  will  produce  no
@@ -31,8 +31,8 @@ OOPPTTIIOONNSS
 
        -e, --extra <list of cURL options>
               Additional cURL options to be produced in the  download  script.
-              These  are appended verbatim to the section for each URL.  ccuurrll--
-              ggeenn does not check if these are valid options.
+              These  are appended verbatim to the section for each URL.  curl-
+              gen does not check if these are valid options.
 
        -h, --help
               Usage help.
@@ -60,7 +60,7 @@ OOPPTTIIOONNSS
        -v, --verbose
               Generate comments in output.
 
-EEXXAAMMPPLLEESS
+EXAMPLES
        Write script to a file
               curlgen > script.curl
        Pipe script directly to curl
@@ -70,20 +70,20 @@ EEXXAAMMPPLLEESS
        Infer paths, relative to a given directory, from first path component
               curlgen -d ~/Downloads --infer -i 1
 
-AAUUTTHHOORR
+AUTHOR
        Drew Thoreson <drew.thoreson@alumni.ubc.ca>
 
-CCOOPPYYRRIIGGHHTT
+COPYRIGHT
        Copyright (c) 2013 Drew Thoreson.  License GPLv3+: GNU GPL version 3 or
        later  <http://gnu.org/licenses/gpl.html>.   This is free software: you
        are free to change and redistribute it. There is NO  WARRANTY,  to  the
        extent permitted by law.
 
-WWWWWW
+WWW
        http://github.com/drewt/curlgen
 
-SSEEEE AALLSSOO
-       ccuurrll(1)
+SEE ALSO
+       curl(1)
 
 
 
