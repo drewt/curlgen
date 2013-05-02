@@ -6,7 +6,7 @@ NAME
        curlgen - generate a cURL configuration script
 
 SYNOPSIS
-       curlget [options]
+       curlgen [options]
 
 DESCRIPTION
        curlgen  is  a tool to generate cURL configuration scripts, to automate
