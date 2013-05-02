@@ -1,0 +1,60 @@
+.\" Process this file with
+.\" groff -man -Tascii curlgen.1
+.\"
+.TH CURLGEN 1 "MAY 2013" Linux "curlget Manual"
+.SH NAME
+curlgen \- generate a cURL configuration script
+.SH SYNOPSIS
+.B curlget [options]
+.SH DESCRIPTION
+.B curlgen
+is a tool to generate cURL configuration scripts, to automate the download of files with cURL.  It reads URLs from standard input and generates the script on standard output.
+
+.B curlgen
+supports some features in addition to those offered by cURL, as well as supporting all cURL options which can be supplied to configuration scripts.
+.SH OPTIONS
+.IP "-b, --blacklist"
+Specifies file types to ignore.  Any URLs which end with a '.' followed by an extention given to this option will produce no output.
+.IP "-d, --base-directory <path>"
+Specifies the directory into which files will be saved.  If --infer is enabled, inferred paths will be relative to this path. If this option is not given, the current working directory is used.
+.IP "-e, --extra <list of cURL options>"
+Additional cURL options to be produced in the download script. These are appended verbatim to the section for each URL. 
+.B curlgen
+does not check if these are valid options.
+.IP "-h, --help"
+Usage help.
+.IP "-i, --index <index>"
+Specifies the index into the path component of the URLs for path inference, for use with the --infer option.  For example, given the URL "http://www.example.com/files/docs/example.html', index 1 would return 'files' (index 2, 'docs', etc.) as the inferred path.  An index of 0 means that the whole path component should be used (in the previous example, 'files/docs').  By default the index is 0.
+.IP "--infer"
+Infer save paths from URLs.  See the -i, --index option for more details.
+.IP "--overwrite"
+Overwrite files which already exist in the local filesystem.  By default curlgen will skip such files.
+.IP "-s, --silent"
+Silence error messages.
+.IP "-v, --verbose"
+Generate comments in output.
+.SH EXAMPLES
+Write script to a file
+.RS
+curlgen > script.curl
+.RE
+Pipe script directly to curl
+.RS
+curlgen | curl --config -
+.RE
+Save files relative to a given directory, ignoring .html and .rss files
+.RS
+curlgen -d ~/Downloads -b html rss
+.RE
+Infer paths, relative to a given directory, from first path component
+.RS
+curlgen -d ~/Downloads --infer -i 1
+.SH AUTHOR
+Drew Thoreson <drew.thoreson@alumni.ubc.ca>
+.SH COPYRIGHT
+Copyright (c) 2013 Drew Thoreson.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
+.SH WWW
+http://github.com/drewt/curlgen
+.SH "SEE ALSO"
+.BR curl (1)

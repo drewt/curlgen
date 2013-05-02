@@ -1,54 +1,58 @@
-NAME
+CURLGEN(1)                      curlget Manual                      CURLGEN(1)
+
+
+
+NNAAMMEE
        curlgen - generate a cURL configuration script
 
-SYNOPSIS
-       curlgen [options]
+SSYYNNOOPPSSIISS
+       ccuurrllggeett [[ooppttiioonnss]]
 
-DESCRIPTION
-       curlgen is a tool to generate cURL configuration scripts, to automate
+DDEESSCCRRIIPPTTIIOONN
+       ccuurrllggeenn  is  a tool to generate cURL configuration scripts, to automate
        the download of files with cURL.  It reads URLs from standard input and
        generates the script on standard output.
 
-       curlgen supports some features in addition to those offered by cURL, as
-       well as supporting all cURL options which can be supplied to
-       configuration scripts.
+       ccuurrllggeenn supports some features in addition to those offered by cURL, as
+       well as supporting all cURL options which can be supplied to configura-
+       tion scripts.
 
-OPTIONS
-       -b, --blacklist <list of file extensions>
-              Specifies file types to ignore.  Any URLs which end with a '.'
-              followed by an extention given to this option will produce no
+OOPPTTIIOONNSS
+       -b, --blacklist
+              Specifies  file  types to ignore.  Any URLs which end with a '.'
+              followed by an extention given to this option  will  produce  no
               output.
 
        -d, --base-directory <path>
-              Specifies the directory into which files will be saved.  If
-              --infer is enabled, inferred paths will be relative to this path.
-              If this option is not given, the current working directory is
-              used.
+              Specifies  the  directory  into  which  files will be saved.  If
+              --infer is enabled, inferred paths  will  be  relative  to  this
+              path. If this option is not given, the current working directory
+              is used.
 
        -e, --extra <list of cURL options>
-              Additional cURL options to be produced in the download script.
-              These are appended verbatim to the section for each URL.  curlgen
-              does not check if these are valid options.
+              Additional cURL options to be produced in the  download  script.
+              These  are appended verbatim to the section for each URL.  ccuurrll--
+              ggeenn does not check if these are valid options.
 
        -h, --help
               Usage help.
 
        -i, --index <index>
               Specifies the index into the path component of the URLs for path
-              inference, for use with the --infer option.  For example, given
-              the URL "http://www.example.com/files/docs/example.html', index 1
-              would return 'files' (index 2, 'docs', etc.) as the inferred
-              path.  An index of 0 means that the whole path component should
+              inference,  for use with the --infer option.  For example, given
+              the URL "http://www.example.com/files/docs/example.html',  index
+              1  would  return 'files' (index 2, 'docs', etc.) as the inferred
+              path.  An index of 0 means that the whole path component  should
               be used (in the previous example, 'files/docs').  By default the
               index is 0.
 
        --infer
-              Infer save paths from URLs.  See -i, --index option for more
+              Infer save paths from URLs.  See the -i, --index option for more
               details.
 
        --overwrite
-              Do not overwrite files which already exist in the local
-              filesystem.
+              Overwrite files which already exist in the local filesystem.  By
+              default curlgen will skip such files.
 
        -s, --silent
               Silence error messages.
@@ -56,7 +60,7 @@ OPTIONS
        -v, --verbose
               Generate comments in output.
 
-EXAMPLES
+EEXXAAMMPPLLEESS
        Write script to a file
               curlgen > script.curl
        Pipe script directly to curl
@@ -66,17 +70,21 @@ EXAMPLES
        Infer paths, relative to a given directory, from first path component
               curlgen -d ~/Downloads --infer -i 1
 
-AUTHOR
-       Drew Thoreson
+AAUUTTHHOORR
+       Drew Thoreson <drew.thoreson@alumni.ubc.ca>
 
-COPYRIGHT
-       Copyright (c) 2013 Drew Thoreson.  License GPLv3+: GNU GPL version 3
-       or later <http://gnu.org/licenses/gpl.html>.
-       This is free software: you are free to change and redistribute it.
-       There is NO WARRANTY, to the extent permitted by law.
+CCOOPPYYRRIIGGHHTT
+       Copyright (c) 2013 Drew Thoreson.  License GPLv3+: GNU GPL version 3 or
+       later  <http://gnu.org/licenses/gpl.html>.   This is free software: you
+       are free to change and redistribute it. There is NO  WARRANTY,  to  the
+       extent permitted by law.
 
-WWW
+WWWWWW
        http://github.com/drewt/curlgen
 
-SEE ALSO
-       curl(1)
+SSEEEE AALLSSOO
+       ccuurrll(1)
+
+
+
+Linux                              MAY 2013                         CURLGEN(1)
