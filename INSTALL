@@ -1,0 +1,3 @@
+curlgen is a python 3 script, so in order to run it you must have a python 3
+interpreter installed.  Otherwise, just move curlgen.py into a directory on
+your PATH.
